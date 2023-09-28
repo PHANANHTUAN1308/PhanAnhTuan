@@ -7,3 +7,4 @@
 
 ### Kế Hoạch Công Việc
 ### Tuần 1: Thiết kế giao diện frontend
+### Tuần 2: Tiếp tục thiết kế giao diện 
