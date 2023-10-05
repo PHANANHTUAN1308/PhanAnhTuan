@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Productitem from "../../component/Productitem";
 import productservice from "../../service/ProductSevice";
-import { Link } from "react-router-dom";
+
 
 
 function Hot() {

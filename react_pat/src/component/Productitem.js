@@ -7,7 +7,7 @@ function Productitem(props) {
                 <div className="col">
                     <div className="product-grid">
                         <div className="product-image">
-                            <Link to={"/product-detail/" + "product/" + props.product.slug} className="image">
+                            <Link to={"/product-detail/" + props.product.slug} className="image">
                                 <img className="pic-1" src={urlImage + "/product/" + props.product.image} />
                                 <img className="pic-2" src={urlImage + "/product/" + props.product.image} />
                             </Link>

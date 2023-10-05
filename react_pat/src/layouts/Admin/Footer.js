@@ -1,4 +1,5 @@
 import { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Footer extends Component {
   constructor(props) {
@@ -15,16 +16,16 @@ class Footer extends Component {
                 <h6 className="title">Brands</h6>
                 <ul className="list-unstyled">
                   <li>
-                    <a href="#">Adidas</a>
+                    <Link href="#">Adidas</Link>
                   </li>
                   <li>
-                    <a href="#">Puma</a>
+                    <Link href="#">Puma</Link>
                   </li>
                   <li>
-                    <a href="#">Reebok</a>
+                    <Link href="#">Reebok</Link>
                   </li>
                   <li>
-                    <a href="#">Nike</a>
+                    <Link href="#">Nike</Link>
                   </li>
                 </ul>
               </aside>
@@ -32,19 +33,19 @@ class Footer extends Component {
                 <h6 className="title">Company</h6>
                 <ul className="list-unstyled">
                   <li>
-                    <a href="#">About us</a>
+                    <Link href="#">About us</Link>
                   </li>
                   <li>
-                    <a href="#">Career</a>
+                    <Link href="#">Career</Link>
                   </li>
                   <li>
-                    <a href="#">Find a store</a>
+                    <Link href="#">Find Link store</Link>
                   </li>
                   <li>
-                    <a href="#">Rules and terms</a>
+                    <Link href="#">Rules and terms</Link>
                   </li>
                   <li>
-                    <a href="#">Sitemap</a>
+                    <Link href="#">Sitemap</Link>
                   </li>
                 </ul>
               </aside>
@@ -52,19 +53,19 @@ class Footer extends Component {
                 <h6 className="title">Help</h6>
                 <ul className="list-unstyled">
                   <li>
-                    <a href="#">Contact us</a>
+                    <Link href="#">Contact us</Link>
                   </li>
                   <li>
-                    <a href="#">Money refund</a>
+                    <Link href="#">Money refund</Link>
                   </li>
                   <li>
-                    <a href="#">Order status</a>
+                    <Link href="#">Order status</Link>
                   </li>
                   <li>
-                    <a href="#">Shipping info</a>
+                    <Link href="#">Shipping info</Link>
                   </li>
                   <li>
-                    <a href="#">Open dispute</a>
+                    <Link href="#">Open dispute</Link>
                   </li>
                 </ul>
               </aside>
@@ -72,16 +73,16 @@ class Footer extends Component {
                 <h6 className="title">Account</h6>
                 <ul className="list-unstyled">
                   <li>
-                    <a href="#"> User Login </a>
+                    <Link href="#"> User Login </Link>
                   </li>
                   <li>
-                    <a href="#"> User register </a>
+                    <Link href="#"> User register </Link>
                   </li>
                   <li>
-                    <a href="#"> Account Setting </a>
+                    <Link href="#"> Account Setting </Link>
                   </li>
                   <li>
-                    <a href="#"> My Orders </a>
+                    <Link href="#"> My Orders </Link>
                   </li>
                 </ul>
               </aside>
@@ -89,24 +90,24 @@ class Footer extends Component {
                 <h6 className="title">Social</h6>
                 <ul className="list-unstyled">
                   <li>
-                    <a href="#">
+                    <Link href="#">
                       <i className="fab fa-facebook" /> Facebook
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link href="#">
                       <i className="fab fa-twitter" /> Twitter
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link href="#">
                       <i className="fab fa-instagram" /> Instagram
-                    </a>
+                    </Link>
                   </li>
                   <li>
-                    <a href="#">
+                    <Link href="#">
                       <i className="fab fa-youtube" /> Youtube
-                    </a>
+                    </Link>
                   </li>
                 </ul>
               </aside>

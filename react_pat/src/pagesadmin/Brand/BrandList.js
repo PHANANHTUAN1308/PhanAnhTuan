@@ -33,8 +33,13 @@ function BrandList() {
         <li className="breadcrumb-item active" aria-current="page">Brand</li>
       </ol>
     </nav></div>
-    <div className="container">
-      <div className="d-flex justify-content-end"><Link className="btn btn-sm btn-success mb-2" to="/admin/brand/create">Add</Link></div>
+    <div className="card">
+            <div className="card-header">
+                <div className="row">
+                    <div className="col-6">
+                        <strong className="text-primary">SẢN PHẨM</strong>
+                    </div>
+      <div className=" col d-flex justify-content-end"><Link className="btn btn-sm btn-success mb-2" to="/admin/brand/create">Add</Link></div></div>
     <div className="row">
       <div className="col-12">
         <table className="table table-bordered">
@@ -77,7 +82,10 @@ function BrandList() {
         </table>
       </div>
     </div>
-  </div></>
+  </div>
+  </div>
+
+  </>
     );
 }
 

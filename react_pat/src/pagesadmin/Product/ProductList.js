@@ -23,6 +23,12 @@ function ProductList(){
             });
     }
     return(
+        <><div className="container bg-primary my-3"><nav aria-label="breadcrumb bg-primary">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item"><a href="#">Home</a></li>
+          <li className="breadcrumb-item active" aria-current="page">Category</li>
+        </ol>
+      </nav></div>
         <div className="card">
             <div className="card-header">
                 <div className="row">
@@ -48,7 +54,6 @@ function ProductList(){
                             <th>Slug</th>
                             <th>Giá gốc</th>
                             <th>Giá giảm</th>
-                            <th>Thông tin </th>
                             <th>Ngày tạo</th>
                             <th>Chức năng</th>
                             <th>ID</th>
@@ -82,10 +87,6 @@ function ProductList(){
                                 <td>
                                     {product.price_sale}
                                 </td>
-
-                                <td>
-                                    {product.detail}
-                                </td>
                                 <td>
                                     {product.created_at}
                                 </td>
@@ -109,7 +110,7 @@ function ProductList(){
                     </tbody>
                 </table>
             </div>
-        </div>
+        </div></>
     );
 }
 export default ProductList;

@@ -43,7 +43,7 @@ function ProductCreate() {
             console.error(error.response.data);
           }
     }
-    const navigate=useNavigate();
+
     useEffect(function () {
         (async function () {
         await categoryservice.getAll().then(function (result) {
@@ -71,10 +71,10 @@ function ProductCreate() {
                             </strong>
                         </div>
                         <div className="col-md-6 d-flex justify-content-end">
-                            <button type="submit"className="btn btn-sm btn-success me-2">
+                            <button type="submit"className="btn btn-sm btn-success me-2 mr-2">
                                 Lưu
                             </button>
-                            <Link to="/admin/product" className="btn btn-sm btn-info">Quay lại</Link>
+                            <Link to="/admin/product" className="btn btn-sm btn-primary mr-2">Quay lại</Link>
                         </div>
                     </div>
                 </div>

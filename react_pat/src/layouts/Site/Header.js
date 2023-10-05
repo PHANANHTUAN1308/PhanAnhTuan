@@ -120,27 +120,14 @@ class Header extends Component {
                   <div className="dropdown-menu dropdown-large">
                     <nav className="row">
                       <div className="col-6">
-                        <Link to="/">Home page 1</Link>
-                        <Link to="/">Home page 2</Link>
+                        <Link to="/">Home page </Link>
                         <Link to="/category">All category</Link>
-                        <Link to="/listing-large">Listing list</Link>
-                        <Link to="/listing-grid">Listing grid</Link>
-                        <Link to="shopping-cart">Shopping cart</Link>
+
                         <Link to="/product-detail/1">Product detail</Link>
-                        <Link to="/content">Page content</Link>
-                        <Link to="/login">Page login</Link>
-                        <Link to="/register">Page register</Link>
+
                       </div>
                       <div className="col-6">
-                        <Link to="profile-main">Profile main</Link>
-                        <Link to="profile-order">Profile orders</Link>
-                        <Link to="profile-seller">Profile seller</Link>
-                        <Link to="profile-wishlist">
-                          Profile wishlist
-                        </Link>
-                        <Link to="profile-setting">Profile setting</Link>
-                        <Link to="profile-address">Profile address</Link>
-                        <Link to="rtl-page-index-1.html">RTL home page</Link>
+
                         <Link to="page-components.html" target="_blank">
                           More components
                         </Link>
@@ -150,33 +137,10 @@ class Header extends Component {
                   </div>
                   {/*  dropdown-menu dropdown-large end.// */}
                 </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="#">
-                    Ready to ship
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="#">
-                    Trade shows
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="#">
-                    Services
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link className="nav-link" to="#">
-                    Sell with us
-                  </Link>
-                </li>
+                
               </ul>
               <ul className="navbar-nav ml-md-auto">
-                <li className="nav-item">
-                  <Link className="nav-link" to="#">
-                    Get the app
-                  </Link>
-                </li>
+                
                 <li className="nav-item dropdown">
                   <Link
                     className="nav-link dropdown-toggle"

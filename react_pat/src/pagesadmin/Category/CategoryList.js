@@ -33,8 +33,12 @@ function CategoryList() {
           <li className="breadcrumb-item active" aria-current="page">Category</li>
         </ol>
       </nav></div>
-      <div className="container">
-      <div className="d-flex justify-content-end"><Link className="btn btn-sm btn-success mb-2" to="/admin/category/create">Add</Link></div>
+      <div className="card">
+            <div className="card-header">
+                <div className="row">
+                        <strong className="text-primary">SẢN PHẨM</strong>
+                    </div>
+      <div className=" d-flex justify-content-end"><Link className="btn btn-sm btn-success mb-2" to="/admin/category/create">Add</Link></div>
     <div className="row">
       <div className="col-12">
         <table className="table table-bordered">
@@ -77,6 +81,7 @@ function CategoryList() {
         </table>
       </div>
 
+        </div>
         </div>
         </div>
         </>

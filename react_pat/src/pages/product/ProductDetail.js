@@ -1,349 +1,104 @@
 import React from "react";
+import { Link, useParams } from "react-router-dom";
+import "../../assets/css/detail.css";
+import { useEffect, useState } from "react";
+import { urlImage } from "../../config";
+import productservice from "../../service/ProductSevice";
+import Productitem from "../../component/Productitem";
+function ProductDetail() {
+  const { slug } = useParams("slug");
+  const [product, setProducts] = useState([]);
+  const [product_orther, setProductOrther] = useState([]);
+  useEffect(
+    function () {
+      (async function () {
+        await productservice.getProductBySlug(slug).then(function (result) {
+          setProducts(result.data.product);
+          setProductOrther(result.data.product_other);
+        });
+      })();
+    },
+    [slug]
+  );
+  return (
+    <div>
+      <div className="row hedding m-0 pl-3 pt-0 pb-3">Detail</div>
 
-const ProductDetail = () => (
-    <>
-    <section className="py-3 bg-light">
-      <div className="container">
-        <ol className="breadcrumb">
-          <li className="breadcrumb-item">
-            <a href="#">Home</a>
-          </li>
-          <li className="breadcrumb-item">
-            <a href="#">Category name</a>
-          </li>
-          <li className="breadcrumb-item">
-            <a href="#">Sub category</a>
-          </li>
-          <li className="breadcrumb-item active" aria-current="page">
-            Items
-          </li>
-        </ol>
-      </div>
-    </section>
-    {/* ========================= SECTION CONTENT ========================= */}
-    <section className="section-content bg-white padding-y">
-      <div className="container">
-        {/* ============================ ITEM DETAIL ======================== */}
-        <div className="row">
-          <aside className="col-md-6">
-            <div className="card">
-              <article className="gallery-wrap">
-                <div className="img-big-wrap">
-                  <div>
-                    {" "}
-                    <a href="#">
-                      <img src={require("../../assets/images/items/1-100-full-mechanics-gat-x252-forbidden-gundam-gp2.jpg")} />
+      <div className="row m-0">
+        <div className="col-lg-4 left-side-product-box pb-3">
+          <img
+            src={urlImage + "/product/" + product.image}
+            className="border p-3"
+          />
+        </div>
+        <div className="col-lg-8">
+          <div className="right-side-pro-detail border p-3 m-0">
+            <div className="row">
+              <div className="col-lg-12">
+                <span>{}</span>
+                <p className="m-0 p-0">{product.name}</p>
+              </div>
+              <div className="col-lg-12">
+                <p className="m-0 p-0 price-pro">{product.price} $</p>
+                <hr className="p-0 m-0" />
+              </div>
+              <div className="col-lg-12 pt-2">
+                <h5>Chi tiết sản phẩm</h5>
+                <span>{product.detail}</span>
+                <hr className="m-0 pt-2 mt-2" />
+              </div>
+              <div className="col-lg-12 pt-2">
+                <h5>Mô tả</h5>
+                <span>{product.metadesc}</span>
+                <hr className="m-0 pt-2 mt-2" />
+              </div>
+              <div className="col-lg-12">
+                <p className="tag-section">
+                  <strong>Tag : </strong>
+                </p>
+              </div>
+              <div className="col-lg-12">
+                <h6>Quantity :</h6>
+                <input
+                  type="number"
+                  className="form-control text-center w-100"
+                  defaultValue={1}
+                />
+              </div>
+              <div className="col-lg-12 mt-3">
+                <div className="row">
+                  <div className="col-lg-6 pb-2">
+                    <a href="#" className="btn btn-danger w-100">
+                      Thêm vào giỏ hàng
                     </a>
                   </div>
-                </div>{" "}
-                {/* slider-product.// */}
-                <div className="thumbs-wrap">
-                  <a href="#" className="item-thumb">
-                    {" "}
-                    <img src={require("../../assets/images/items/full-mechanics-1-100-gundam-aerial-gp.jpg")} />
-                  </a>
-                  <a href="#" className="item-thumb">
-                    {" "}
-                    <img src={require("../../assets/images/items/15-1.jpg")} />
-                  </a>
-                  <a href="#" className="item-thumb">
-                    {" "}
-                    <img src={require("../../assets/images/items/15-2.jpg")} />
-                  </a>
-                  <a href="#" className="item-thumb">
-                    {" "}
-                    <img src={require("../../assets/images/items/15-1.jpg")} />
-                  </a>
-                </div>{" "}
-                {/* slider-nav.// */}
-              </article>{" "}
-              {/* gallery-wrap .end// */}
-            </div>{" "}
-            {/* card.// */}
-          </aside>
-          <main className="col-md-6">
-            <article className="product-info-aside">
-              <h2 className="title mt-3">1/100 FULL MECHANICS GAT-X252 FORBIDDEN GUNDAM</h2>
-              <div className="rating-wrap my-3">
-                <ul className="rating-stars">
-                  <li style={{ width: "80%" }} className="stars-active">
-                    <i className="fa fa-star" /> <i className="fa fa-star" />
-                    <i className="fa fa-star" /> <i className="fa fa-star" />
-                    <i className="fa fa-star" />
-                  </li>
-                  <li>
-                    <i className="fa fa-star" /> <i className="fa fa-star" />
-                    <i className="fa fa-star" /> <i className="fa fa-star" />
-                    <i className="fa fa-star" />
-                  </li>
-                </ul>
-                <small className="label-rating text-muted">132 reviews</small>
-                <small className="label-rating text-success">
-                  {" "}
-                  <i className="fa fa-clipboard-check" /> 154 orders{" "}
-                </small>
-              </div>{" "}
-              {/* rating-wrap.// */}
-              <div className="mb-3">
-                <var className="price h4">USD 465,00</var>
-                <span className="text-muted">USD 562.65 incl. VAT</span>
-              </div>{" "}
-              {/* price-detail-wrap .// */}
-              <p>
-              Life is so interesting. Do you ever think about how the Full Mechanics line really only started 
-              because Bandai wanted a way to release 1/100 Iron Blooded Orphans kits with inner frames without 
-              making them all Master Grades, and then they made a Barbatos Master Grade anyway, and now the Full 
-              Mechanics line is inhabited only by Gundam Seed mobile suits and variants of one Kyoukai Senki design? 
-              What ever happened to the RE/100 line? Weird stuff.
-
-              <br/><br/>Anyway, next up in the line is Forbidden Gundam, and we're thrilled to see the goofy Mini-Zam transformation 
-              is completely intact! You can expect the same detail and build quality from this kit as the Raider and Calamity.
-              {" "}
-              </p>
-              <dl className="row">
-                <dt className="col-sm-3">Brand</dt>
-                <dd className="col-sm-9">
-                  <a href="#">Bandai</a>
-                </dd>
-                <dt className="col-sm-3">Gundam Serie</dt>
-                <dd className="col-sm-9">Mobile Suit Gundam SEED </dd>
-                <dt className="col-sm-3">Grade/Scale</dt>
-                <dd className="col-sm-9"> 1/100 Full Mechanics </dd>
-                <dt className="col-sm-3">Condition</dt>
-                <dd className="col-sm-9"> This is a model kit and requires assembly.</dd>
-                
-              </dl>
-              <div className="form-row  mt-4">
-                <div className="form-group col-md flex-grow-0">
-                  <div className="input-group mb-3 input-spinner">
-                    <div className="input-group-prepend">
-                      <button
-                        className="btn btn-light"
-                        type="button"
-                        id="button-plus"
-                      >
-                        {" "}
-                        +{" "}
-                      </button>
-                    </div>
-                    <input
-                      type="text"
-                      className="form-control"
-                      defaultValue={1}
-                    />
-                    <div className="input-group-append">
-                      <button
-                        className="btn btn-light"
-                        type="button"
-                        id="button-minus"
-                      >
-                        {" "}
-                        −{" "}
-                      </button>
-                    </div>
+                  <div className="col-lg-6">
+                    <a href="#" className="btn btn-success w-100">
+                      Mua ngay
+                    </a>
                   </div>
-                </div>{" "}
-                {/* col.// */}
-                <div className="form-group col-md">
-                  <a href="#" className="btn  btn-primary">
-                    <i className="fas fa-shopping-cart" />{" "}
-                    <span className="text">Add to cart</span>
-                  </a>
-                  <a href="#" className="btn btn-light">
-                    <i className="fas fa-envelope" />{" "}
-                    <span className="text">Contact supplier</span>
-                  </a>
-                </div>{" "}
-                {/* col.// */}
-              </div>{" "}
-              {/* row.// */}
-            </article>{" "}
-            {/* product-info-aside .// */}
-          </main>{" "}
-          {/* col.// */}
-        </div>{" "}
-        {/* row.// */}
-        {/* ================ ITEM DETAIL END .// ================= */}
-      </div>{" "}
-      {/* container .//  */}
-    </section>
-    {/* ========================= SECTION CONTENT END// ========================= */}
-    {/* ========================= SECTION  ========================= */}
-    <section className="section-name padding-y bg">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-8">
-            <h5 className="title-description">Description</h5>
-            <p>
-              Lava stone grill, suitable for natural gas, with cast-iron cooking
-              grid, piezo ignition, stainless steel burners, water tank, and
-              thermocouple. Thermostatic adjustable per zone. Comes complete
-              with lava rocks. Adjustable legs. Lorem ipsum dolor sit amet,
-              consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-              labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-              nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-              consequat.
-            </p>
-            <ul className="list-check">
-              <li>Material: Stainless steel</li>
-              <li>Weight: 82kg</li>
-              <li>built-in drip tray</li>
-              <li>Open base for pots and pans</li>
-              <li>On request available in propane execution</li>
-            </ul>
-            <h5 className="title-description">Specifications</h5>
-            <table className="table table-bordered">
-              <tbody>
-                <tr>
-                  {" "}
-                  <th colSpan={2}>Basic specs</th>{" "}
-                </tr>
-                <tr>
-                  {" "}
-                  <td>Type of energy</td>
-                  <td>Lava stone</td>{" "}
-                </tr>
-                <tr>
-                  {" "}
-                  <td>Number of zones</td>
-                  <td>2</td>{" "}
-                </tr>
-                <tr>
-                  {" "}
-                  <td>Automatic connection </td>{" "}
-                  <td>
-                    {" "}
-                    <i className="fa fa-check text-success" /> Yes{" "}
-                  </td>
-                </tr>
-                <tr>
-                  {" "}
-                  <th colSpan={2}>Dimensions</th>{" "}
-                </tr>
-                <tr>
-                  {" "}
-                  <td>Width</td>
-                  <td>500mm</td>{" "}
-                </tr>
-                <tr>
-                  {" "}
-                  <td>Depth</td>
-                  <td>400mm</td>{" "}
-                </tr>
-                <tr>
-                  {" "}
-                  <td>Height </td>
-                  <td>700mm</td>{" "}
-                </tr>
-                <tr>
-                  {" "}
-                  <th colSpan={2}>Materials</th>{" "}
-                </tr>
-                <tr>
-                  {" "}
-                  <td>Exterior</td>
-                  <td>Stainless steel</td>{" "}
-                </tr>
-                <tr>
-                  {" "}
-                  <td>Interior</td>
-                  <td>Iron</td>{" "}
-                </tr>
-                <tr>
-                  {" "}
-                  <th colSpan={2}>Connections</th>{" "}
-                </tr>
-                <tr>
-                  {" "}
-                  <td>Heating Type</td>
-                  <td>Gas</td>{" "}
-                </tr>
-                <tr>
-                  {" "}
-                  <td>Connected load gas</td>
-                  <td>15 Kw</td>{" "}
-                </tr>
-              </tbody>
-            </table>
-          </div>{" "}
-          {/* col.// */}
-          <aside className="col-md-4">
-            <div className="box">
-              <h5 className="title-description">Files</h5>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-                enim ad minim veniam, quis nostrud exercitation ullamco laboris
-                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
-                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
-                nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.
-              </p>
-              <h5 className="title-description">Videos</h5>
-              <article className="media mb-3">
-                <a href="#">
-                  <img
-                    className="img-sm mr-3"
-                    src={require("../../assets/images/posts/3.jpg")}
-                  />
-                </a>
-                <div className="media-body">
-                  <h6 className="mt-0">
-                    <a href="#">How to use this item</a>
-                  </h6>
-                  <p className="mb-2">
-                    {" "}
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                    scelerisque ante sollicitudin{" "}
-                  </p>
                 </div>
-              </article>
-              <article className="media mb-3">
-                <a href="#">
-                  <img
-                    className="img-sm mr-3"
-                    src={require("../../assets/images/posts/2.jpg")}
-                  />
-                </a>
-                <div className="media-body">
-                  <h6 className="mt-0">
-                    <a href="#">New tips and tricks</a>
-                  </h6>
-                  <p className="mb-2">
-                    {" "}
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                    scelerisque ante sollicitudin{" "}
-                  </p>
-                </div>
-              </article>
-              <article className="media mb-3">
-                <a href="#">
-                  <img
-                    className="img-sm mr-3"
-                    src={require("../../assets/images/posts/1.jpg")}
-                  />
-                </a>
-                <div className="media-body">
-                  <h6 className="mt-0">
-                    <a href="#">New tips and tricks</a>
-                  </h6>
-                  <p className="mb-2">
-                    {" "}
-                    Cras sit amet nibh libero, in gravida nulla. Nulla vel metus
-                    scelerisque ante sollicitudin{" "}
-                  </p>
-                </div>
-              </article>
-            </div>{" "}
-            {/* box.// */}
-          </aside>{" "}
-          {/* col.// */}
-        </div>{" "}
-        {/* row.// */}
-      </div>{" "}
-      {/* container .//  */}
-    </section>
-  </>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="row">
+      <div className="col-lg-12 text-center pt-3">
+        <h4>Sản phẩm cùng loại</h4>
+      </div>
+    </div>
 
-);
+      <div className="row">
+      {product_orther.map(function(product,index){
+                        return <Productitem key={index} product={product}/>
+                    })}
+        
+
+    </div>
+      
+      
+    </div>
+  );
+}
 export default ProductDetail;

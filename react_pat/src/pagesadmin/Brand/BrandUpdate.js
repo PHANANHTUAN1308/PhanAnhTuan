@@ -8,7 +8,7 @@ function BrandUpdate() {
     const [name, setName] = useState("");
     const [metakey, setMetakey] = useState("");
     const [metadesc, setMetadesc] = useState("");
-    const [parent_id, setParentId] = useState(0);
+
     const [sort_order, setSortOder] = useState(0);
     const [status, setStatus] = useState(1);
     useEffect(function(){
@@ -20,7 +20,7 @@ function BrandUpdate() {
                 setMetakey(tmp.metakey)
                 setMetadesc(tmp.metadesc)
                 setStatus(tmp.status)
-                setParentId(tmp.parent_id)
+
                 setSortOder(tmp.sort_order)
             });
         })();
@@ -45,7 +45,7 @@ function BrandUpdate() {
         brand.append("name", name);
         brand.append("metakey", metakey);
         brand.append("metadesc", metadesc);
-        brand.append("parent_id", parent_id);
+
         brand.append("sort_order", sort_order);
         brand.append("status", status);
         if (image.files.length===0)
@@ -111,26 +111,7 @@ function BrandUpdate() {
                 ></textarea>
               </div>
             </div>
-            <div className="col-md-3">
-              <div className="mb-3">
-                <label htmlFor="parent_id">Danh mục cha</label>
-                <select
-                  type="text"
-                  name="parent_id"
-                  value={parent_id}
-                  onChange={(e) => setParentId(e.target.value)}
-                  className="form-control"
-                >
-                  <option value="0">Danh mục cha</option>
-                  {brands.map(function (cat, index) {
-                    return (
-                      <option key={index} value={cat.id}>
-                        {cat.name}
-                      </option>
-                    );
-                  })}
-                </select>
-              </div>
+            
 
               <div className="mb-3">
                 <label htmlFor="sort_order">Sắp xếp</label>
@@ -172,7 +153,7 @@ function BrandUpdate() {
               </div>
             </div>
           </div>
-        </div>
+      
       </form>
       );
   }
