@@ -36,6 +36,7 @@ Route::post('category/category_list/{parent_id?}/{status?}', [CategoryController
 /* /CATEGORES */
 
 /* PRODUCT */
+
 Route::get('product/index', [ProductController::class, 'index']);
 Route::get('product/index_all/{limit}', [ProductController::class, 'index_all']);
 Route::get('product/show/{id}', [ProductController::class, 'show']);

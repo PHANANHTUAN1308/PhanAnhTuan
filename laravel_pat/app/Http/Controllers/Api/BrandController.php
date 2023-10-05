@@ -63,13 +63,26 @@ class BrandController extends Controller
         $brand->metakey = $request->metakey; //form
         $brand->metadesc = $request->metadesc; //form
         $brand->updated_at = date('Y-m-d H:i:s');
-        $brand->updated_by = 1;
+        $brand->update_by = 1;
         $brand->status = $request->status; //form
         $brand->save(); //Luuu vao CSDL
         return response()->json(
             ['success' => true, 'message' => 'Thành công', 'data' => $brand],
             200
         );
+        $files = $request->image;
+        if ($files != null) {
+            if (is_file(public_path('images/product/' . $product->image))) {
+
+                unlink(public_path('images/product/' . $product->image));
+            }
+            $extension = $files->getClientOriginalExtension();
+            if (in_array($extension, ['jpg', 'png', 'gif', 'webp', 'jpeg', 'svg'])) {
+                $filename = $product->slug . '.' . $extension;
+                $product->image = $filename;
+                $files->move(public_path('images/product'), $filename);
+            }
+        }
         $files = $request->image;
         if ($files != null) {
             $extension = $files->getClientOriginalExtension();

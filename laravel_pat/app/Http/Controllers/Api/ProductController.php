@@ -33,6 +33,7 @@ class ProductController extends Controller
             200
         );
     }
+    
     public function store(Request $request)
     {
         $product = new Product();
