@@ -1,16 +1,26 @@
 import { Link, useNavigate } from "react-router-dom";
 
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import categoryservice from "../../service/CategorySevice"
 function CategoryCreate() {
     const navigate = useNavigate();
     const [name, setName] = useState('');
     const [metakey, setMetakey] = useState('');
     const [metadesc, setMetadesc] = useState('');
-    const [parent_id, setParendtId] = useState(0);
+    const [parent_id, setParentId] = useState(0);
     const [sort_order, setSortOrder] = useState(0);
     const [status, setStatus] = useState(1);
+    const [categories, setCategorys] = useState([]);
+    useEffect(function () {
+        (async function () {
+            await categoryservice.getAll()
+                .then(function (result) {
+                    setCategorys(result.data.data);
+                }
+                );
+        })();
+    }, []);
     async function categoryStore(event) {
         event.preventDefault();
         const image = document.querySelector("#image");
@@ -21,22 +31,32 @@ function CategoryCreate() {
         category.append("parent_id", parent_id);
         category.append("sort_order", sort_order);
         category.append("status", status);
+        if(image.files.length === 0){
+          category.append("image", "");
+        }else
         category.append("image", image.files[0]);
         await categoryservice.create(category).then(function (res) {
             alert(res.data.message);
             navigate("../../admin/category", { replace: true });
             
         });
- 
+    
     }
     return (
+        <><div className="container bg-primary my-3"><nav aria-label="breadcrumb bg-primary">
+      <ol className="breadcrumb">
+        <li className="breadcrumb-item"><Link to="/admin">Home</Link></li>
+        <li className="breadcrumb-item active" aria-current="page">Brand</li>
+      </ol>
+    </nav></div>
+    
         <form onSubmit={categoryStore} method="post">
             <div className="card">
                 <div className="card-header">
                     <div className="row">
                         <div className="col-md-6">
                             <strong className="text-danger">
-                                Thêm danh mục
+                                THÊM DANH MỤC
                             </strong>
                         </div>
                         <div className="col-md-6 d-flex justify-content-end">
@@ -67,18 +87,45 @@ function CategoryCreate() {
 
                         </div>
                         <div className="col-md-3">
-                            <div className="md-3">
-                                <label htmlFor="parent_id">Danh mục cha</label>
-                                <select onChange={(e) => setParendtId(e.target.value)} value={parent_id} name="parent_id" className="form-control">
-                                    <option value="0">Danh mục cha</option>
-                                </select>
-                            </div>
-                            <div className="md-3">
-                                <label htmlFor="sort-order">Sắp xếp</label>
-                                <select onChange={(e) => setSortOrder(e.target.value)} value={sort_order} name="sort-order" className="form-control">
-                                    <option value="0">None</option>
-                                </select>
-                            </div>
+                        <div className="mb-3">
+                <label htmlFor="parent_id">Danh mục cha</label>
+                <select
+                  type="text"
+                  name="parent_id"
+                  value={parent_id}
+                  onChange={(e) => setParentId(e.target.value)}
+                  className="form-control"
+                >
+                  <option value="0">Danh mục cha</option>
+                  {categories.map(function (cat, index) {
+                    return (
+                      <option key={index} value={cat.id}>
+                        {cat.name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
+
+              <div className="mb-3">
+                <label htmlFor="sort_order">Sắp xếp</label>
+                <select
+                  type="text"
+                  name="sort_order"
+                  value={sort_order}
+                  onChange={(e) => setSortOrder(e.target.value)}
+                  className="form-control"
+                >
+                  <option value="0">None</option>
+                  {categories.map(function (cat, index) {
+                    return (
+                      <option key={index} value={cat.sort_order+1}>
+                        Sau: {cat.name}
+                      </option>
+                    );
+                  })}
+                </select>
+              </div>
                             <div className="md-3">
                                 <label htmlFor="image">Hình đại diện</label>
                                 <input type="file" id="image" className="form-control" />
@@ -96,6 +143,8 @@ function CategoryCreate() {
             </div>
 
         </form>
+                
+            </>
     );
 }
 

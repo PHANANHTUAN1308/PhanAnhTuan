@@ -13,7 +13,7 @@ function SliderList() {
         (async function () {
             await sliderservice.getAll()
                 .then(function (result) {
-                    setSliders(result.data);
+                    setSliders(result.data.data);
                 }
                 );
         })();
@@ -27,33 +27,42 @@ function SliderList() {
             });
     }
     return (
+        <><div className="container bg-primary my-3"><nav aria-label="breadcrumb bg-primary">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item"><Link to="/admin">Home</Link></li>
+          <li className="breadcrumb-item active" aria-current="page">Product</li>
+        </ol>
+      </nav></div>
         <div className="card">
             <div className="card-header">
                 <div className="row">
                     <div className="col-6">
-                        <strong className="text-primary">Thương hiệu</strong>
-
+                        <strong className="text-primary">SẢN PHẨM</strong>
                     </div>
-                    <div className="col-6 text-end">
-
-                        <Link className="btn btn-sm btn-success" to="/admin/slider/create"><MdAdd />Thêm</Link>
-
-                    </div>
-                    <div className="card-body">
-                        <table className="table table-striped table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>Hình</th>
-                                    <th>Tên thương hiệu</th>
-                                    <th>Slug</th>
-                                    <th>Ngày tạo</th>
-                                    <th>Chức năng</th>
-                                    <th>ID</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {sliders.map(function (slider, index) {
+                    <div className="col-6 d-flex justify-content-end">
+                        <Link className="btn btn-sm btn-success" to="/admin/slider/create">
+                            Thêm
+                        </Link>
+                        </div>
+                </div>
+            </div>
+            <div className="card-body text-center">
+                <table className="table table-striped table-bordered table-hover">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Hình ảnh</th>
+                            <th>Tên Trang</th>
+                            <th>Link</th>
+                            <th>Thứ tự</th>
+                            <th>Ngày tạo</th>
+                            <th>Chức năng</th>
+                            <th>ID</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                    {sliders.map(function (slider, index) {
                                     return (
                                         <tr key={index}>
                                             <td>
@@ -67,6 +76,9 @@ function SliderList() {
                                             {slider.link}
                                             </td>
                                             <td>
+                                            {slider.positon}
+                                            </td>
+                                            <td>
                                             {Moment(slider.created_at).format('DD-MM-yyyy hh:mm')}
                                             </td>
                                             <td>
@@ -77,18 +89,21 @@ function SliderList() {
                                             <td>
                                             {slider.id}
                                             </td>
+                                            <td>
+                                            {slider.status}
+                                            </td>
                                         </tr>
 
                                     )
                                 })};
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
+                       
+                    </tbody>
+                </table>
             </div>
+        </div></>
 
-        </div>
+
+        
     );
 }
 

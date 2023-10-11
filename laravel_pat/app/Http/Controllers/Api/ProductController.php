@@ -59,7 +59,7 @@ class ProductController extends Controller
         $product->metakey = $request->metakey; //form
         $product->metadesc = $request->metadesc; //form
         $product->created_at = date('Y-m-d H:i:s');
-        $product->create_by = 1;
+        $product->created_by = 1;
         $product->status = $request->status; //form
         $product->save(); //Luuu vao CSDL
         return response()->json(

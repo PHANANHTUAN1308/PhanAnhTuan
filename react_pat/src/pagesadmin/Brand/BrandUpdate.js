@@ -24,7 +24,7 @@ function BrandUpdate() {
                 setSortOder(tmp.sort_order)
             });
         })();
-    },[]);
+    },[id]);
     //
     const navigate=useNavigate();
     const [brands, setBrands] = useState([]);
@@ -68,7 +68,7 @@ function BrandUpdate() {
         <div className="card-header">
           <div className="row">
             <div className="col-md-6">
-              <strong className="text-danger">THÊM DANH MỤC</strong>
+              <strong className="text-danger">CẬP NHẬT THƯƠNG HIỆU</strong>
             </div>
             <div className="col-md-6 d-flex justify-content-end">
               <button type="submit" className="btn btn-sm btn-success mr-2">

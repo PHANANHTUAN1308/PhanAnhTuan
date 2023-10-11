@@ -36,7 +36,7 @@ function ProductList(){
                         <strong className="text-primary">SẢN PHẨM</strong>
                     </div>
                     <div className="col-6 d-flex justify-content-end">
-                        <Link className="btn btn-sm btn-success" to="/admin/product/create">
+                        <Link className="btn btn-sm btn-success" to="/admin/productsale/create">
                             Thêm
                         </Link>
                         </div>

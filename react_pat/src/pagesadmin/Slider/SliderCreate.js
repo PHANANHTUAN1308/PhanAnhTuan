@@ -23,83 +23,90 @@ function SliderCreate() {
     }
     /*------------------------------------------------*/
     return (
-        <div className="container-fluid">
-            <div className="row px-xl-5">
-                <div className="col-lg-9 col-md-4 ">
-                    <form onSubmit={sliderStore} method="post">
-                        <div className="card bg-dark">
-                            <div className="card-header">
-                                <div className="row">
-                                    <div className="col-md-6">
-                                        <strong>
-                                            Thêm danh mục
-                                        </strong>
+        <><div className="container bg-primary my-3"><nav aria-label="breadcrumb bg-primary">
+            <ol className="breadcrumb">
+                <li className="breadcrumb-item"><Link to="/admin">Home</Link></li>
+                <li className="breadcrumb-item active" aria-current="page">Slider</li>
+            </ol>
+        </nav></div>
+            <form onSubmit={sliderStore} method="post">
+                <div className="card">
+                    <div className="card-header">
+                        <div className="row">
+                            <div className="col-md-6">
+                                <strong className="text-danger">
+                                    THÊM TRANG
+                                </strong>
+                            </div>
+                            <div className="col-md-6 d-flex justify-content-end">
+                                <button type="submit" className="btn btn-sm btn-success me-2 mr-2">
+                                    Lưu
+                                </button>
+                                <Link to="/admin/product" className="btn btn-sm btn-primary mr-2">Quay lại</Link>
+                            </div>
+                        </div>
+                    </div>
+                    <div className="card-body">
+
+                        <div className="card-body">
+                            <div className="row" >
+                                <div className="col">
+                                    <div className="mb-3">
+                                        <label htmlFor="name">Tên Trang</label>
+                                        <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} className="form-control" />
 
                                     </div>
-                                    <div className="col-md-6 text-end">
-                                        <button className="btn btn-sm  btn-succress me-2 bg-info" type="submit">
-                                            Lưu
+                                    <div className="md-3">
+                                        <label htmlFor="image">Hình ảnh</label>
+                                        <input type="file" id="image" className="form-control" />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="link">Đường dẫn</label>
+                                        <textarea name="link" value={link} onChange={(e) => setLink(e.target.value)} className="form-control"></textarea>
 
-                                        </button>
-                                        <Link to="/admin/slider" className="btn-btn-sm btn-info">
-                                            Về danh sách
-                                        </Link>
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="sort_order">Sắp xếp theo</label>
+                                        <select name="ort_order" className="form-control" value={sort_order} onChange={(e) => setSortOrder(e.target.value)}>
+                                            <option value="0">None</option>
+
+                                        </select>
+                                        <div />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="position">Thứ tự</label>
+                                        <textarea name="position" value={position} onChange={(e) => setPosition(e.target.value)} className="form-control"></textarea>
+
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="status">Trạng thái</label>
+                                        <select
+                                            type="text"
+                                            name="status"
+                                            value={status}
+                                            onChange={(e) => setStatus(e.target.value)} className="form-control"
+                                        >
+                                            <option value="1">Xuất bản</option>
+                                            <option value="2">Chưa xuất bản</option>
+                                        </select>
                                     </div>
 
                                 </div>
-
                             </div>
-                            <div className="card-body">
-                                <div className="row" >
-                                    <div className="col-md-9">
-                                        <div className="mb-3">
-                                            <label htmlFor="name">Tên danh mục</label>
-                                            <input type="text" name="name" value={name} onChange={(e) => setName(e.target.value)} className="form-control" />
-
-                                        </div>
-                                        <div className="mb-3">
-                                            <label htmlFor="link">Từ khoá</label>
-                                            <textarea name="link" value={link} onChange={(e) => setLink(e.target.value)} className="form-control"></textarea>
-
-                                        </div>
-                                        <div className="mb-3">
-                                            <label htmlFor="position">Mô tả</label>
-                                            <textarea name="position" value={position} onChange={(e) => setPosition(e.target.value)} className="form-control"></textarea>
-
-                                        </div>
-
-                                    </div>
-
-                                </div>
-                            </div>
-
-                        </div>
-                    </form>
-                </div>
-                <div className="col-lg-3 col-md-4">
-                    <div className="col-md-12 bg-dark">
-                        <div className="mb-3">
-                            <label htmlFor="sort_order">Sắp xếp</label>
-                            <select name="ort_order" className="form-control" value={sort_order} onChange={(e) => setSortOrder(e.target.value)}>
-                                <option value="0">None</option>
-
-                            </select>
-
-                        </div>
-                        <div className="mb-3">
-                            <label htmlFor="status">Trạng thái</label>
-                            <select name="status" className="form-control" value={status} onChange={(e) => setStatus(e.target.value)}>
-
-                                <option value="1">Xuất bản 1</option>
-                                <option value="2">Chưa xuất bản 2</option>
-
-                            </select>
-
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </form>
+
+
+
+
+
+        </>
+
+
+
+
     );
 }
 

@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { MdAdd } from "react-icons/md";
-import { FaRegEye,FaEdit,FaTrashAlt} from "react-icons/fa";
+
 import brandservice from "../../service/BrandSevice";
 import { useEffect,useState } from "react";
 import Moment from 'moment';
@@ -29,15 +28,15 @@ function BrandList() {
     return (
         <><div className="container bg-primary my-3"><nav aria-label="breadcrumb bg-primary">
       <ol className="breadcrumb">
-        <li className="breadcrumb-item"><a href="#">Home</a></li>
-        <li className="breadcrumb-item active" aria-current="page">Brand</li>
+        <li className="breadcrumb-item"><Link to="/admin">Home</Link></li>
+        <li className="breadcrumb-item active" aria-current="page"><Link to="/admin/brand">Brand</Link></li>
       </ol>
     </nav></div>
     <div className="card">
             <div className="card-header">
                 <div className="row">
                     <div className="col-6">
-                        <strong className="text-primary">SẢN PHẨM</strong>
+                        <strong className="text-primary">THƯƠNG HIỆU</strong>
                     </div>
       <div className=" col d-flex justify-content-end"><Link className="btn btn-sm btn-success mb-2" to="/admin/brand/create">Add</Link></div></div>
     <div className="row">

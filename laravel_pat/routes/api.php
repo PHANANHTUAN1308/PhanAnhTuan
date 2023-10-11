@@ -7,6 +7,7 @@ use App\Http\Controllers\Api\BrandController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\MenuController;
 use App\Http\Controllers\Api\ProductController;
+use App\Http\Controllers\Api\ProductSaleController;
 use App\Http\Controllers\Api\SliderController;
 use App\Http\Controllers\Api\UserController;
 use App\Http\Controllers\Api\TopicController;
@@ -47,6 +48,15 @@ Route::get('product_home/{limit}/{category_id}', [ProductController::class, 'pro
 Route::delete('product/destroy/{id}', [ProductController::class, 'destroy']);
 Route::post('product/update/{id}', [ProductController::class, 'update']);
 /* /PRODUCT */
+
+/* PRODUCTSALE */
+
+Route::get('productsale/index', [ProductSaleController::class, 'index']);
+Route::get('productsale/show/{id}', [ProductSaleController::class, 'show']);
+Route::post('productsale/store', [ProductSaleController::class, 'store']);
+Route::delete('productsale/destroy/{id}', [ProductSaleController::class, 'destroy']);
+Route::post('productsale/update/{id}', [ProductSaleController::class, 'update']);
+/* /PRODUCTSALE */
 
 Route::get('user/index/{roles}', [UserController::class, 'index']);
 Route::get('user/show/{id}', [UserController::class, 'show']);

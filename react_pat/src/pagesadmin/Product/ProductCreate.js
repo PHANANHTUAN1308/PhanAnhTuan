@@ -1,5 +1,5 @@
 import { useState,useEffect} from "react";
-import { Link,useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import productservice from "../../service/ProductSevice";
 import categoryservice from "../../service/CategorySevice";
 import brandservice from "../../service/BrandSevice";
@@ -61,6 +61,12 @@ function ProductCreate() {
     }, []);
 
     return (
+        <><div className="container bg-primary my-3"><nav aria-label="breadcrumb bg-primary">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item"><Link to="/admin">Home</Link></li>
+          <li className="breadcrumb-item active" aria-current="page">Product</li>
+        </ol>
+      </nav></div>
         <form onSubmit={productStore} method="post">
             <div className="card">
                 <div className="card-header">
@@ -171,6 +177,7 @@ function ProductCreate() {
             </div>
 
         </form>
+        </>
     );
 }
 

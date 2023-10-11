@@ -27,8 +27,8 @@ return new class extends Migration
             $table->string('metekey');
             $table->string('metadesc');
             $table->timestamps();
-            $table->unsignedInteger('create_by')->default(1);
-            $table->unsignedInteger('update_by')->nullable();
+            $table->unsignedInteger('created_by')->default(1);
+            $table->unsignedInteger('updated_by')->nullable();
             $table->unsignedTinyInteger('status')->default(2);
         });
     }

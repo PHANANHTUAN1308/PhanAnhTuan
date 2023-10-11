@@ -12,7 +12,7 @@ function BrandShow() {
                 setBrand(result.data.data);
             });
         })();
-    }, []);
+    }, [id]);
 
     return (
         <section className="card">
@@ -20,7 +20,7 @@ function BrandShow() {
             <div className="card-header">
                 <div className="row">
                     <div className="col-md-6">
-                        <strong className="text-danger  ">Chi Tiết Thương Hiệu</strong>
+                        <strong className="text-danger  ">CHI TIẾT THƯƠNG HIỆU</strong>
                     </div>
                     <div className="col-md-6 d-flex justify-content-end">
                         <Link to="/admin/brand" className="btn btn-sm btn-success mr-2">

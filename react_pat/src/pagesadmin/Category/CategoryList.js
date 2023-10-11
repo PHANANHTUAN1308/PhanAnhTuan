@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
-import { MdAdd } from "react-icons/md";
-import { FaRegEye, FaEdit, FaTrashAlt } from "react-icons/fa";
+
 import categoryservice from "../../service/CategorySevice";
 import { useEffect, useState } from "react";
 import Moment from 'moment';
@@ -26,17 +25,19 @@ function CategoryList() {
                 alert(res.data.message);
             });
     }
+    
+  
     return (
         <><div className="container bg-primary my-3"><nav aria-label="breadcrumb bg-primary">
         <ol className="breadcrumb">
-          <li className="breadcrumb-item"><a href="#">Home</a></li>
+          <li className="breadcrumb-item"><Link to="/admin">Home</Link></li>
           <li className="breadcrumb-item active" aria-current="page">Category</li>
         </ol>
       </nav></div>
       <div className="card">
             <div className="card-header">
                 <div className="row">
-                        <strong className="text-primary">SẢN PHẨM</strong>
+                        <strong className="text-primary">DANH MỤC</strong>
                     </div>
       <div className=" d-flex justify-content-end"><Link className="btn btn-sm btn-success mb-2" to="/admin/category/create">Add</Link></div>
     <div className="row">
